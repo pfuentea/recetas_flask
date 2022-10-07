@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Recipe Share</h1>
+    <div class="row"> 
+        <div class="col">
+            <form class="p-3 col-6 mx-auto my-5 shadow-lg p-3 mb-5 bg-body rounded" action="/registrar_usuario" method="POST">
+                {% with messages_register = get_flashed_messages(category_filter=['register']) %}
+                    {% if messages_register %}                           
+                        {% for register in messages_register %}          
+                            <p class="text-dark titulo">{{register}}</p> 
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <h1>Register</h1>
+                <div class="form-group">
+                    <label for="">First name</label>
+                    <input type="text" name="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="">Last name</label>
+                    <input type="text" name="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="">Confirm Password</label>
+                    <input type="password" name="confirm">
+                </div>
+                <div class="form-group" >
+                    <input type="submit" value="register"> 
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form class="p-3 col-6 mx-auto my-5 shadow-lg p-3 mb-5 bg-body rounded" action="/login" method="post">
+                {% with messages_login = get_flashed_messages(category_filter=['login']) %}
+                    {% if messages_login %}                           
+                        {% for login in messages_login %}          
+                            <p class="text-dark titulo">{{login}}</p> 
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <h1>Login</h1>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" name="email_1">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password_1">
+                </div>
+                <div class="form-group" >
+                    <input type="submit" value="Login"> 
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+
+ <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>   
+</body>
+</html>

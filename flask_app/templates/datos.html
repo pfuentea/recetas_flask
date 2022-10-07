@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Share</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <h1>HELLO!!! {{usuario_ingreso.first_name}} </h1>
+        <p>All posted recipes:</p>
+        <div >
+            <a href="/crear_receta">Create</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    
+<!-- Tabla de P. Fuentealba -->
+    <table class="table table-striped mi_tabla" id="tablita">
+        <tr>
+            <th>Name</th> 
+            <th>Under</th>
+            <th>Posted By</th> 
+            <th>Actions</th>
+        </tr>
+        {% for receta in todas_recetas_con_usuarios %}
+        <tr>
+            <td>{{receta.name}}</td> 
+            {% if receta.under == '1' %}
+            <td>Yes</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
+            
+            <td>{{receta.usuario[0].first_name}}</td>
+            <td> 
+                {% if receta.user_id == session['usuario_id'] %}
+                <a href="/editar/receta">EDITAR</a>
+                <a href="/eleminar/receta">Eliminar</a>
+                <a href="/ver/receta">VER</a>  
+                {% else %}
+                <a href="/ver/receta">VER</a>
+                {% endif %}
+            </td>
+        </tr>   
+        {% endfor %}              
+     
+    </table>
+
+</body>
+</html>
