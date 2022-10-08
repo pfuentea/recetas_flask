@@ -43,3 +43,19 @@ class Recipes:
             objeto_receta.usuario.append(User(receta))
             todas_las_recetas_con_usuarios.append(objeto_receta)
         return todas_las_recetas_con_usuarios 
+
+    @classmethod 
+    def receta_by_id(cls,data):
+        consulta = "SELECT * FROM recipes WHERE id= %(id)s;"
+        resultado = connectToMySQL(cls.db).query_db(consulta, data)
+        return cls(resultado[0])
+
+    @classmethod 
+    def update_receta(cls,data): 
+        consulta = "UPDATE recipes SET name=%(name)s, description= %(description)s,  date_made=%(date_made)s, under= %(under)s,  instruction=%(instruction)s  WHERE id= %(receta_id)s;"
+        resultado = connectToMySQL(cls.db).query_db(consulta, data)
+        
+    @classmethod
+    def delete_receta(cls,data):
+        consulta = "DELETE from recipes WHERE id= %(receta_id)s;"
+        resultado = connectToMySQL(cls.db).query_db(consulta, data) 

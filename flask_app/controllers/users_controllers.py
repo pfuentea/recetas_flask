@@ -48,6 +48,8 @@ def welcome():
     data = {
         'id':session['usuario_id']
     }
+
+    print(data)
     usuario_ingreso = User.obtener_un_usuario(data)
     #todas_recetas = Recipes.todas_recetas()
     todas_recetas_con_usuarios = Recipes.recetas_con_usuarios()

@@ -37,12 +37,10 @@
             <td>{{receta.usuario[0].first_name}}</td>
             <td> 
                 {% if receta.user_id == session['usuario_id'] %}
-                <a href="/editar/receta">EDITAR</a>
-                <a href="/eleminar/receta">Eliminar</a>
-                <a href="/ver/receta">VER</a>  
-                {% else %}
-                <a href="/ver/receta">VER</a>
+                <a href="/editar/receta/{{receta.id}}">EDITAR</a>
+                <a href="/eliminar/receta/{{receta.id}}">Eliminar</a>
                 {% endif %}
+                <a href="/ver/receta/{{receta.id}}">VER</a>
             </td>
         </tr>   
         {% endfor %}              

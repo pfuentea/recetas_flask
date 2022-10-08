@@ -7,7 +7,7 @@ class MySQLConnection:
     def __init__(self, db):
         connection = pymysql.connect(host = 'localhost',
                                     user = 'root', # change the user and password as needed
-                                    password = 'D473nB4nk!_!', 
+                                    password = 'Laura1501', 
                                     db = db,
                                     charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
@@ -16,7 +16,8 @@ class MySQLConnection:
         self.connection = connection
 
     # the method to query the database
-    def query_db(self, query, data=None):
+    def query_db(self, query, data=None): 
+        print(f"data:{data}")
         with self.connection.cursor() as cursor:
             try:
                 query = cursor.mogrify(query, data)

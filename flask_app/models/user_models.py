@@ -10,7 +10,7 @@ bcrypt = Bcrypt(app)
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z._-]+\.[a-zA-Z]+$')
 
 class User: 
-    base_datos="recetas_usuarios"
+    base_datos="recetas_usuarios" 
 
     def __init__(self,data):
         self.id = data['id']
