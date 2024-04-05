@@ -6,7 +6,6 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 bcrypt = Bcrypt(app)
 
-
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z._-]+\.[a-zA-Z]+$')
 
 class User: 
@@ -75,3 +74,4 @@ class User:
         return is_valid, obtener_usuario
 
 
+#comentario para el git
