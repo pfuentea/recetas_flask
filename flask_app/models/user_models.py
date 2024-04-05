@@ -23,8 +23,7 @@ class User:
     
     @classmethod
     def ingreso(cls,data):
-        solicitud = """INSERT INTO users (first_name, last_name, email, password, created_at, updated_at)
-        VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s, NOW(), NOW()); """
+        solicitud = """INSERT INTO users (first_name, last_name, email, password, created_at, updated_at) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s, NOW(), NOW()); """
         return connectToMySQL(cls.base_datos).query_db(solicitud,data)
 
     @classmethod
